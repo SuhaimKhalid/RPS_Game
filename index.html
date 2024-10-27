@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS Game</title>
+
+    <!-- BootStrap 5 Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Assets/style.css">
+</head>
+<body>
+
+    <main>
+        <div class="container">
+            
+            <section id="intro">
+                <h3>Welcome To Rock Paper Scissors Game</h3>
+                <p>How Many Rounds You Want To Play</p>
+                <div class="number_show " id="NS">Number of Rounds</div>
+                <div class="Dial_Pad" id="dial_pad"></div>
+                <button class="start_game" id="Start">Start Game</button>
+            </section>
+
+<!-- 2nd Page -->
+            <div id="wrap" class="hide">
+                <div id="cancel">X</div>
+                <!-- Header -->
+            <header class="header">
+                <div class="row">
+                    <div class="buttons_list row" id="button_list">
+                        <div class="RPS_btn rock col-2"  data-index="Rock" id="rock"> Rock</div>
+                        <div class="RPS_btn paper col-2" data-index="Paper" id="paper"> Paper</div>
+                        <div class="RPS_btn sizer col-2" data-index="Scissors" id="sizer"> Scissors</div>
+                    </div>
+                </div>
+            </header>
+
+          
+            
+            <section class="image_section" id="Image_area">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-6 corner_colum left_colum order-lg-1 order-md-2 order-2">
+                     <div>   <img id="computer_image" src="Assets/Images/robo.png" alt="Robot"></div>
+                        <img id="user_choice" class="Left_img" src="Assets/Images/Left Hand/Left_Paper.png" alt="Image oF Hand" style="transform: rotate(20deg) translate(0px, 0px);">
+                    </div>
+                    <div class="col-lg-6 Round Round_inner order-lg-2 order-md-1 order-1">
+                        <div class="row">
+                            <div class="col-4">
+                                <h3 class="side_label">Computer</h3>
+                                <p class="side_number">0</p>
+                            </div>
+                            <div class="col-4">
+                                <h3 class="Round_title">Rounds</h3>
+                                <p class="Round_number" id="RoundNumber">1</p>
+                            </div>
+                            <div class="col-4">
+                                <h3 class="side_label">User</h3>
+                                <p class="side_number">0</p>
+                            </div>
+                        </div>
+                      
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-6 corner_colum right_colum order-lg-2 order-md-3 order-3">
+                       <div> <img id="human_image" src="Assets/Images/11.png" alt="human icon"></div>
+                        <img id="computer_Choice" class="Right_img" src="Assets/Images/Right Hand/Right_Paper.png" alt="Image oF Hand" style="transform: rotate(-20deg) translate(0px, 0px);">
+                    </div>
+                </div>
+            </section>
+            <p id="Results" class="result"></p>
+
+            <section id="table_section"></section>
+            </div>
+
+        </div>
+    </main>
+
+   
+
+    
+
+
+
+    <!-- BootStrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- J Query -->
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    
+    <!-- Custom Script -->
+    <script src="Assets/script.js"></script>
+</body>
+</html>
