@@ -91,14 +91,16 @@ var Round_number_Value;
 
 // Function Fo Button
 buttonList.addEventListener("click",((event)=>{
-
+    console.log(event.target.classList); // Check if 'disabled' is in the list
  // Check if the clicked button has the 'disabled' class, if yes, return immediately
  if (event.target.classList.contains('disabled')) {
+    console.log("no interact");
     return;
 }
 
-    if(Round_number_Value>0 )
+  else if(Round_number_Value>0 )
         {
+            console.log("interct");
             var user_Choice = event.target.getAttribute("data-index"); 
             var Computer_Choice = ComputerArray[Math.floor(Math.random()* ComputerArray.length)];
             
@@ -117,7 +119,7 @@ buttonList.addEventListener("click",((event)=>{
                         {
                             result=false;
                             t=0;
-                          console.log("go");
+                         
                           if(user_Choice == "Rock" || user_Choice == "Paper" || user_Choice == "Scissors")
                            {
                             user_choice_list.push(user_Choice);
@@ -206,7 +208,7 @@ buttonList.addEventListener("click",((event)=>{
                         }
                     }
                         
-                   console.log(t);
+                   
             },100);
            
         }
@@ -277,8 +279,7 @@ function imageRuner(user_Choice, Computer_Choice){
         timer_image++;
         leftRotate+=20;
         rightrotate-=20;
-        console.log("leftRotate",leftRotate)
-        console.log("RightRotate",rightrotate)
+   
         user_choice_img.style.transform = "rotate("+leftRotate+"deg) translate(0px, 0px)";
         computer_Choice_img.style.transform = "rotate("+rightrotate+"deg) translate(0px, 0px)";
 
@@ -302,7 +303,7 @@ function imageRuner(user_Choice, Computer_Choice){
                     break;
                     
                 }
-console.log("switch",user_choice_img)
+
                 switch(Computer_Choice)
                 {
                     case "Rock":
@@ -361,12 +362,13 @@ Start_game.addEventListener("click",(()=>{
         {
             intro_div.className="hide";
             wrap_area.className="wrap";
+            Round_number_Value = parseInt(number_show.textContent, 10);
+            Round_number.textContent = Round_number_Value;
         }
         else{
             alert("Please Enter Number oF Rounds!")
         }
-        Round_number.textContent=number_show.textContent;
-        Round_number_Value=Round_number.textContent;
+    
 
     
 }));
@@ -384,19 +386,23 @@ cancel.addEventListener("click",(()=>{
 // Function to disable all divs
 function disableAllDivs() {
     const divs = document.querySelectorAll('.RPS_btn');
-    
+    buttonList.classList.add('disabled');
     divs.forEach(div => {
         div.classList.add('disabled');
         div.style.pointerEvents = 'none'; // Disable interaction for all divs
+        div.style.opacity = '0.5';
+       
+        
     });
 }
 
 // Function to enable all divs
 function enableAllDivs() {
     const divs = document.querySelectorAll('.RPS_btn');
-    
+    buttonList.classList.remove('disabled');
     divs.forEach(div => {
         div.classList.remove('disabled');
         div.style.pointerEvents = 'auto'; // Enable interaction for all divs
+        div.style.opacity = '1';
     });
 }
