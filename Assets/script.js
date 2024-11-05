@@ -87,7 +87,9 @@ var result=false;
 // Assing Number Round To The Game Section Screen
 var Round_number_Value;
 
-
+// Number of wins and loses
+var wins;
+var lose;
 
 // Function Fo Button
 buttonList.addEventListener("click",((event)=>{
@@ -131,6 +133,7 @@ buttonList.addEventListener("click",((event)=>{
                             )
                             {
                                 Results.textContent="You Win";
+                                wins++;
                                 round--;
                             }
                             else if
@@ -141,12 +144,15 @@ buttonList.addEventListener("click",((event)=>{
                                 )
                                 {
                                     Results.textContent="You Lose";
+                                    lose++;
                                     round--;
                                 }
                               else if(user_Choice == Computer_Choice)
                                     {
                                         Results.textContent="Tie!";
                                         round--;
+                                        wins++;
+                                        lose++;
                                     }
         
                             result_list.push(Results.textContent);
@@ -205,6 +211,7 @@ buttonList.addEventListener("click",((event)=>{
                            }
                            Round_number_Value--;
                            Round_number.textContent=Round_number_Value;
+                           resultFunction();
                         }
                     }
                         
@@ -212,14 +219,76 @@ buttonList.addEventListener("click",((event)=>{
             },100);
            
         }
+       
    else{
     showModal("Game Over", "You have finished all rounds!");
-   }
   
-            
+   }
+     
 
   
 }));
+
+
+
+// Result Function
+
+   function resultFunction()
+   {
+    
+    if(Round_number_Value==0)
+        {
+
+            console.log("result show modal", Round_number_Value);
+
+            var word;
+            if (wins>lose)
+            {
+                word="Win"
+            }
+            else{
+                word="Lose"
+            }
+            Resultmodal("Results", "You Have "+ word + " The Game");
+        }  
+   } 
+
+// Function to show modal to present result of game
+function Resultmodal(title, bodyText) {
+    // Check if modal already exists, if yes, remove it before appending a new one
+    const existingModal = document.getElementById('resultmodal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+
+    // Create Modal HTML
+    const modalHTML = `
+        <div class="modal fade" id="resultmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">${title}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>${bodyText}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="Start_again" class="btn btn-secondary" data-bs-dismiss="modal">Start Again</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    `;
+
+    // Append Modal to the Body
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    // Trigger the Modal using Bootstrap's Modal API
+    const modalElement = new bootstrap.Modal(document.getElementById('resultmodal'));
+    modalElement.show();
+
+}
 
 
 // Function to Show Modal for when rounds end
@@ -375,12 +444,7 @@ Start_game.addEventListener("click",(()=>{
 
 // Function to Go Back to Home Screen
 cancel.addEventListener("click",(()=>{
-    intro_div.className="";
-    wrap_area.className="hide";
-    while (table_section.hasChildNodes()) {
-        table_section.removeChild(table_section.firstChild);
-    }
-    
+    location.reload(); 
 }));
 
 // Function to disable all divs
