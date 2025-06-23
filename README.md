@@ -10,15 +10,15 @@ A simple and fun **Rock Paper Scissors** game built using **HTML**, **CSS**, and
 
 ### 🎮 Game Start Screen
 
-![Start Screen](assets/Images/main.png)
+![Start Screen](Assets/Images/main.png)
 
 ### 🕹️ Gameplay Screen
 
-![Gameplay Screen](assets/Images/dashboard.png)
+![Gameplay Screen](Assets/Images/dashboard.png)
 
 ### 📊 Results Table
 
-![Results Table](assets/Images/Table.png)
+![Results Table](Assets/Images/Table.png)
 
 ## 🚀 Features
 
